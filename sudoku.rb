@@ -31,12 +31,13 @@ class SudokuGame
 
       begin
         pos = parse_pos(gets.chomp)
+        raise if pos.length < 2 || pos.first > 9 || pos.last > 9
       rescue
         # TODO: Google how to print the error that happened inside of a rescue statement.
-        puts "Invalid position entered (did you use a comma?)"
-        puts ""
+          puts "Invalid position entered (did you use a comma?)"
+          puts ""
 
-        pos = nil
+          pos = nil
       end
     end
     pos
