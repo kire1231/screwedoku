@@ -1,4 +1,5 @@
 require_relative "board"
+require_relative "tile"
 
 class SudokuGame
   def self.from_file(filename)
