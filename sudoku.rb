@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Board
   def self.empty_grid
     Array.new(9) do
@@ -83,16 +85,17 @@ class Board
 end
 
 class Tile
-  attr_reader :value
+  attr_reader :value, :color
 
   def initialize(value)
     @value = value
     @given = value == 0 ? false : true
+    @color = given? ? :blue : :red
   end
 
-  def color
-    given? ? :blue : :red
-  end
+  # def color
+  #   given? ? :blue : :red
+  # end
 
   def given?
     @given
@@ -109,6 +112,7 @@ class Tile
       @value = new_value
     end
   end
+end
 
 class SudokuGame
   def self.from_file(filename)
